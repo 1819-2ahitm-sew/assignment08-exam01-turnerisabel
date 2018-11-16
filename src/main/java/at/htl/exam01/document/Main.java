@@ -29,11 +29,19 @@ public class Main {
         document[2] = "Book: 'lordOfTheRings' von 'Tolkien'";
 
 
-        System.out.println("Buch:  'Rowlings', 'Harry Potter und der Stein der Weisen'");
-        System.out.println("Email: 'Susi', 'Bewerbung', 'CoolCompany'");
-        System.out.println("Buch: 'Tolkien', 'lordOfRings'");
+        System.out.println(document[0]);
+        System.out.println(document[1]);
+        System.out.println(document[2]);
 
     }
 
+    private static void printBook(String[] document){
+        int counter = 0;
+        int counter2 = 0;
 
+        for (int i = 0; i < document.length; i++) {
+
+
+        }
+    }
 }
