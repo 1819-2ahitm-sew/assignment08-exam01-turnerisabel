@@ -61,8 +61,6 @@ public class StringCompress {
             System.err.println();
         }
 
-
-
         return null;
     }
 
