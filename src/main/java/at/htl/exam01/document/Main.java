@@ -23,6 +23,15 @@ public class Main {
      */
     public static void main(String[] args) {
 
+        String [] document = new String[3];
+        document[0] = "Book: 'Harry Potter und der Stein der Weisen' von 'Rowlings'";
+        document[1] = "Email: 'Bewerbung' von 'Susi' an 'CoolCompany'";
+        document[2] = "Book: 'lordOfTheRings' von 'Tolkien'";
+
+
+        System.out.println("Buch:  'Rowlings', 'Harry Potter und der Stein der Weisen'");
+        System.out.println("Email: 'Susi', 'Bewerbung', 'CoolCompany'");
+        System.out.println("Buch: 'Tolkien', 'lordOfRings'");
 
     }
 

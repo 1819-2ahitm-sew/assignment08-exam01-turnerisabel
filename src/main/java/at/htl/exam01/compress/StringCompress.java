@@ -7,6 +7,11 @@ import java.util.Scanner;
 public class StringCompress {
 
     private static final String FILE_NAME = "sample.txt";
+    int anzahl = 0;
+    int counter = 0;
+
+
+
 
     /**
      * Main-Methode, hier wird das StringCompress-Objekt erstellt
@@ -42,6 +47,21 @@ public class StringCompress {
      */
     public String[] readFromFile(String fileName) {
 
+        String [] array = new String[counter];
+
+        try (Scanner scanner = new Scanner(new FileReader(FILE_NAME))){
+            while (scanner.hasNextLine()){
+                for (int i = 0; i < array.length; i++) {
+                    array[i] = scanner.nextLine();
+                    System.out.println(array[i]);
+                }
+            }
+        }
+        catch (FileNotFoundException e){
+            System.err.println();
+        }
+
+
 
         return null;
     }
@@ -54,6 +74,9 @@ public class StringCompress {
      * @param lines String-Array
      */
     public void print(String[] lines) {
+        for (int i = 0; i < lines.length; i++) {
+            System.out.println(lines[i]);
+        }
 
     }
 
@@ -63,9 +86,19 @@ public class StringCompress {
      * @param fileName
      * @return Anzahl der Zeilen in der Textdatei
      */
-    public int getNoOfLines(String fileName) {
+    public int getNoOfLines(String fileName, int counter) {
 
+            try (Scanner scanner = new Scanner(new FileReader(FILE_NAME))) {
+                while (scanner.hasNextLine()) {
+                    scanner.nextLine();
+                    counter++;
 
-        return -1;
-    }
-}
+                }
+            }
+            catch (FileNotFoundException e){
+                System.err.println();
+            }
+                    return counter;
+                }
+            }
+
