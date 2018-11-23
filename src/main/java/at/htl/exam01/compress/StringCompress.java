@@ -11,8 +11,6 @@ public class StringCompress {
     int counter = 0;
 
 
-
-
     /**
      * Main-Methode, hier wird das StringCompress-Objekt erstellt
      * und die Methoden des Objekts werden aufgerufen
@@ -27,16 +25,15 @@ public class StringCompress {
 
 
     /**
-     *
      * Sämtliche Zeilen werden aus der Textdatei eingelesen
      * zB 5A
      * Nun wird in das String-Array AAAAA geschrieben
-     *
+     * <p>
      * Bsp Testdatei
      * 5A
      * 3B
      * 4C
-     *
+     * <p>
      * ergibt eine String-Array mit 3 Elementen
      * AAAAA
      * BBB
@@ -47,34 +44,67 @@ public class StringCompress {
      */
     public String[] readFromFile(String fileName) {
 
-        String [] array = new String[counter];
+//        String [] array = new String[counter];
+//
+//        try (Scanner scanner = new Scanner(new FileReader(FILE_NAME))){
+//            while (scanner.hasNextLine()){
+//                for (int i = 0; i < array.length; i++) {
+//                    array[i] = scanner.nextLine();
+//                    System.out.println(array[i]);
+//                }
+//            }
+//        }
+//        catch (FileNotFoundException e){
+//            System.err.println();
+//        }
+//
+//        return null;
 
-        try (Scanner scanner = new Scanner(new FileReader(FILE_NAME))){
-            while (scanner.hasNextLine()){
-                for (int i = 0; i < array.length; i++) {
-                    array[i] = scanner.nextLine();
-                    System.out.println(array[i]);
+
+        String[] lines = new String[4];
+
+        try (Scanner scanner = new Scanner(new FileReader((FILE_NAME)))) {
+
+            int lineNo = 0;
+
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+
+                char letter = line.charAt(0);
+                String noStr = line.substring(1);
+
+                int noAnzahl = Integer.parseInt(noStr);
+
+                lines[lineNo] = "";
+                for (int j = 0; j < noAnzahl; j++) {
+                    lines[lineNo] += letter;
+
                 }
+
+                lineNo++;
             }
-        }
-        catch (FileNotFoundException e){
-            System.err.println();
+        } catch (FileNotFoundException e) {
+            System.err.println(e.getMessage());
         }
 
-        return null;
+        return lines;
     }
 
 
     /**
      * Der Inhalt des String-Arrays wird zeilenweise auf der Console ausgegeben
      *
-     *
      * @param lines String-Array
+     *              <p>
+     *              Die Anzahl der Zeilen der übergebenen Textdatei wird bestimmt
+     * @param lines
+     * @return Anzahl der Zeilen in der Textdatei
      */
+
     public void print(String[] lines) {
-        for (int i = 0; i < lines.length; i++) {
-            System.out.println(lines[i]);
-        }
+
+
+        System.out.println("");
 
     }
 
@@ -84,19 +114,22 @@ public class StringCompress {
      * @param fileName
      * @return Anzahl der Zeilen in der Textdatei
      */
-    public int getNoOfLines(String fileName, int counter) {
 
-            try (Scanner scanner = new Scanner(new FileReader(FILE_NAME))) {
-                while (scanner.hasNextLine()) {
-                    scanner.nextLine();
-                    counter++;
+    public int getNoOfLines(String fileName) {
+//
+//            try (Scanner scanner = new Scanner(new FileReader(FILE_NAME))) {
+//                while (scanner.hasNextLine()) {
+//                    scanner.nextLine();
+//                    counter++;
+//
+//                }
+//            }
+//            catch (FileNotFoundException e){
+//                System.err.println();
+//            }
+//                    return counter;
+//                }
+        return -1;
+    }
 
-                }
-            }
-            catch (FileNotFoundException e){
-                System.err.println();
-            }
-                    return counter;
-                }
-            }
-
+}
