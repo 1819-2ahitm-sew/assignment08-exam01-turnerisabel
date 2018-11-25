@@ -1,16 +1,16 @@
 package at.htl.exam01.document;
 
-public class Document {
-
-    private String author;
+public abstract class Document {
+    protected String author;
 
     public Document(String author){
         this.author = author;
-
     }
 
-    public String getAuthor() {
+    public abstract String toString();
 
+
+    public String getAuthor() {
         return author;
     }
 

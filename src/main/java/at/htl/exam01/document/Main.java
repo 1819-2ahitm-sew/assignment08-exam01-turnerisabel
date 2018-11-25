@@ -23,25 +23,30 @@ public class Main {
      */
     public static void main(String[] args) {
 
-        String [] document = new String[3];
-        document[0] = "Book: 'Harry Potter und der Stein der Weisen' von 'Rowlings'";
-        document[1] = "Email: 'Bewerbung' von 'Susi' an 'CoolCompany'";
-        document[2] = "Book: 'lordOfTheRings' von 'Tolkien'";
-
-
-        System.out.println(document[0]);
-        System.out.println(document[1]);
-        System.out.println(document[2]);
-
+        Document[] docs = new Document[]{
+                new Book("Rowlings", "Harry Potter und der Stein der Weisen"),
+                new Email("Susi", "CoolCompany", "Bewerbung"),
+                new Book("Tolkien", "lordOftheRings")};
+        writeOutput(docs);
     }
 
-    private static void printBook(String[] document){
-        int counter = 0;
-        int counter2 = 0;
+    private static void writeOutput(Document[] document) {
+
+        int counterBooks = 0;
+        int counterEmails = 0;
 
         for (int i = 0; i < document.length; i++) {
-
-
+            if (document[i] instanceof Email) {
+                System.out.printf("Email: %s", document[i].toString());
+                counterEmails++;
+            }else if (document[i] instanceof Book){
+                System.out.printf("Book: %s", document[i].toString());
+                counterBooks++;
+            }
         }
+        System.out.println("");
+        System.out.printf("Anzahl Bücher: ", counterBooks);
+        System.out.println("");
+        System.out.printf("Anzahl Emails: ", counterEmails);
     }
 }
