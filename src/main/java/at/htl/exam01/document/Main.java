@@ -45,8 +45,8 @@ public class Main {
             }
         }
         System.out.println("");
-        System.out.printf("Anzahl Bücher: ", counterBooks);
+        System.out.printf("Anzahl Bücher: %d", counterBooks);
         System.out.println("");
-        System.out.printf("Anzahl Emails: ", counterEmails);
+        System.out.printf("Anzahl Emails: %d", counterEmails);
     }
 }
